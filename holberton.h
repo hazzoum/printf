@@ -1,11 +1,37 @@
-#ifndef PRINTF_H
-#define PRINTF_H
+#ifndef HOLBERTON_H
+#define HOLBERTON_H
+#include <limits.h>
 #include <unistd.h>
-/* functions prototype */
+#include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
+/**
+ * struct printf - struct printf
+ * @c: The character
+ * @fun: The function associated
+ */
+typedef struct printf
+{
+	char c;
+	int (*fun)(va_list);
+} printf_t;
+
 int _printf(const char *format, ...);
 int _putchar(char c);
-/* functions prototypes conversion */
-int print_char(char arg);
-int print_string(char *arg);
-int print_int(int arg);
+int get_func(const char s, va_list ap);
+
+
+int print_char(va_list arg);
+int print_string(va_list arg);
+int print_percent(va_list arg);
+int print_int(va_list arg);
+int print_binaire(va_list b);
+int print_unsf(va_list arg);
+int print_oct(va_list arg);
+int print_hex(va_list arg);
+int print_heX(va_list arg);
+int _rot13(va_list ap);
+int _printrev(va_list ap);
+int print_P(va_list p);
+
 #endif/* PRINTF_H */
